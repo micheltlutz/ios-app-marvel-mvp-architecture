@@ -17,4 +17,9 @@ class CharacterServiceMock: CharacterServiceProtocol {
         success(characters, characters.count)
     }
     
+    func getComics(characterId: String, success: @escaping ([Comic]) -> Void, failure: @escaping (String) -> Void) {
+        let comics = CharacterMock.getComics()
+        success(comics)
+    }
+    
 }

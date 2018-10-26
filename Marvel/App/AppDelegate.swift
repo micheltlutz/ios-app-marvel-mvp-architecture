@@ -9,15 +9,14 @@
 import UIKit
 import Fabric
 import Crashlytics
+import Firebase
 
-//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        Fabric.sharedSDK().debug = true
-        Fabric.with([Crashlytics.self()])
+        FirebaseApp.configure()
         self.homeScreen()
         return true
     }
@@ -27,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let navigationController = storyboard.instantiateViewController(withIdentifier: "CharacterListNavigationController") as? UINavigationController,
               let mainController = storyboard.instantiateViewController(withIdentifier: "CharacterListViewController") as? CharacterListViewController else { return }
         
-        mainController.viewModel = CharacterListViewModel(service: CharacterService())
+        mainController.presenter = CharacterListPresenter(view: mainController, service: CharacterService())
         navigationController.viewControllers = [mainController]
         
         self.window = UIWindow(frame: UIScreen.main.bounds)

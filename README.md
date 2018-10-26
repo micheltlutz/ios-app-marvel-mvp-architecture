@@ -2,6 +2,9 @@
 
 Hello! This is steps to run the Marvel App in your Xcode
 
+## Architecture
+
+This project was building using the MVP pattern
 
 ## Clone repository
 
@@ -80,9 +83,9 @@ that execute in order the commands bellow:
 
 
 	
-## Crashlytics
+## Crashes Tracking
 
-This project contains the Fabric to monitor the crashes in app.
+This project use the Firebase to monitor the crashes in app.
 	
 ## Continuous Integration
 
@@ -92,4 +95,4 @@ This project have how CI the Bitrise. If you want see the CI config , we have a 
 	
 ## Unit Tests
 
-This app has unit tests, and to date the percentage coverage is 93%.
+This app has unit tests, and to date the percentage coverage is 71%.
